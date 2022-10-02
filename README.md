@@ -9,3 +9,8 @@ Copy the local address and paste it in your browser to access the UI.**
 
 #Repo consists of:
 - Basic Flow Designs to understand the working and basics of node red.
+  - HelloWorld_flow:
+    Inject node is the input node and the debug node is the output node.
+    Functions nodes are the processing nodes. In this example, there is no function node.
+    We have a direct input and output.
+    
