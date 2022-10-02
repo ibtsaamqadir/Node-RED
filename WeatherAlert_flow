@@ -1,0 +1,65 @@
+[
+    {
+        "id": "8dad263cc880c000",
+        "type": "tab",
+        "label": "Weather Alert System",
+        "disabled": false,
+        "info": "Making such a flow that is simple and capable of triggering weather alerts.\r\n",
+        "env": []
+    },
+    {
+        "id": "03bdd0f3bf13b002",
+        "type": "openweathermap",
+        "z": "8dad263cc880c000",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Islamabad",
+        "country": "Pakistan",
+        "language": "en",
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "112a075fe5d6549c"
+            ]
+        ]
+    },
+    {
+        "id": "112a075fe5d6549c",
+        "type": "function",
+        "z": "8dad263cc880c000",
+        "name": "function 1",
+        "func": "if (msg.payload.weather === \"Clear\") {\n    msg.payload = \"Clear Weather, Happy!\"\n    return msg;\n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 240,
+        "wires": [
+            [
+                "e1a0c47ffb018bc3"
+            ]
+        ]
+    },
+    {
+        "id": "e1a0c47ffb018bc3",
+        "type": "debug",
+        "z": "8dad263cc880c000",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 220,
+        "wires": []
+    }
+]
