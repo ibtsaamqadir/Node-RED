@@ -13,4 +13,7 @@ Copy the local address and paste it in your browser to access the UI.**
     Inject node is the input node and the debug node is the output node.
     Functions nodes are the processing nodes. In this example, there is no function node.
     We have a direct input and output.
+  - WeatherAlert-flow:
+    Using and API and then displaying the message if the weather is clear.
+    API: openweathermap.org
     
