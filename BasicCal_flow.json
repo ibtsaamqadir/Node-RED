@@ -1,0 +1,162 @@
+[
+    {
+        "id": "75de138fe1bf0adb",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f8689f2318da044c",
+        "type": "inject",
+        "z": "75de138fe1bf0adb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "ADD",
+        "payloadType": "str",
+        "x": 250,
+        "y": 140,
+        "wires": [
+            [
+                "c82545175dd7a0d5"
+            ]
+        ]
+    },
+    {
+        "id": "35f5aced8103aee3",
+        "type": "inject",
+        "z": "75de138fe1bf0adb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "SUB",
+        "payloadType": "str",
+        "x": 250,
+        "y": 220,
+        "wires": [
+            [
+                "c82545175dd7a0d5"
+            ]
+        ]
+    },
+    {
+        "id": "bc947f55e232bb81",
+        "type": "inject",
+        "z": "75de138fe1bf0adb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "MUL",
+        "payloadType": "str",
+        "x": 250,
+        "y": 300,
+        "wires": [
+            [
+                "c82545175dd7a0d5"
+            ]
+        ]
+    },
+    {
+        "id": "37e0202572e7efbb",
+        "type": "inject",
+        "z": "75de138fe1bf0adb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "DIV",
+        "payloadType": "str",
+        "x": 250,
+        "y": 380,
+        "wires": [
+            [
+                "c82545175dd7a0d5"
+            ]
+        ]
+    },
+    {
+        "id": "c82545175dd7a0d5",
+        "type": "function",
+        "z": "75de138fe1bf0adb",
+        "name": "function 2",
+        "func": "if (msg.payload=='ADD'){\n    msg.payload=5+6;\n} else if (msg.payload =='SUB'){\n    msg.payload=5-6;\n} else if (msg.payload == 'MUL'){\n    msg.payload=5*6;\n} else if (msg.payload == 'DIV'){\n    msg.payload=5/6;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 260,
+        "wires": [
+            [
+                "4d3262eac399da8a"
+            ]
+        ]
+    },
+    {
+        "id": "4d3262eac399da8a",
+        "type": "debug",
+        "z": "75de138fe1bf0adb",
+        "name": "ANS",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 260,
+        "wires": []
+    }
+]
