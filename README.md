@@ -16,4 +16,6 @@ Copy the local address and paste it in your browser to access the UI.**
   - WeatherAlert-flow:
     Using and API and then displaying the message if the weather is clear.
     API: openweathermap.org
+  - BasicCal_flow:
+    Coding the functions and making a hardcoded calculator that will perform operations on 5&6.
     
