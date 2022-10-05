@@ -1,0 +1,133 @@
+[
+    {
+        "id": "902666a9e482cce5",
+        "type": "tab",
+        "label": "Flow 5",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4bf979debc4a0e0e",
+        "type": "inject",
+        "z": "902666a9e482cce5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "055cd1702e618514"
+            ]
+        ]
+    },
+    {
+        "id": "055cd1702e618514",
+        "type": "http request",
+        "z": "902666a9e482cce5",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 190,
+        "y": 160,
+        "wires": [
+            [
+                "5176c6622c582f36"
+            ]
+        ]
+    },
+    {
+        "id": "5176c6622c582f36",
+        "type": "json",
+        "z": "902666a9e482cce5",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 330,
+        "y": 120,
+        "wires": [
+            [
+                "0c712d6fe5356459"
+            ]
+        ]
+    },
+    {
+        "id": "0c712d6fe5356459",
+        "type": "function",
+        "z": "902666a9e482cce5",
+        "name": "function 5",
+        "func": "var outputMsgs=[];\nfor (var i=0; i < msg.payload.features.length - 1; i++) {\n    var feature = msg.payload.features[i];\n    outputMsgs.push(\n        {payload: { value: feature.properties.mag,\n                    message: feature.properties.place,\n\n                }\n        });\n}\n\nvar msg2 = { payload: \"Second Output\" }\nreturn [outputMsgs, msg2];\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 160,
+        "wires": [
+            [
+                "79b846e904abb2b0"
+            ],
+            [
+                "671f63145c540b4d"
+            ]
+        ]
+    },
+    {
+        "id": "79b846e904abb2b0",
+        "type": "debug",
+        "z": "902666a9e482cce5",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "671f63145c540b4d",
+        "type": "debug",
+        "z": "902666a9e482cce5",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 200,
+        "wires": []
+    }
+]
