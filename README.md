@@ -19,4 +19,6 @@ Copy the local address and paste it in your browser to access the UI.**
   - BasicCal_flow:
     Coding the functions and making a hardcoded calculator that will perform operations on 5&6.
   - EarthquakeAPI_flow: Printing data from earthquake.usgs website. Data: Magnitude and Place of Origin.
+  - IfElse_flow: A basuc switching flow
+  - CSVParser_flow: Parsing a random CSV data saved in template. 
     
