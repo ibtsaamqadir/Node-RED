@@ -1,0 +1,98 @@
+[
+    {
+        "id": "6b58cd62db06b1f7",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "73e4e16.4d9742",
+        "type": "inject",
+        "z": "6b58cd62db06b1f7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Parsing CSV Data",
+        "payload": "Parse",
+        "payloadType": "str",
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "2bef78fd.ae70f8"
+            ]
+        ]
+    },
+    {
+        "id": "90ed51dc.dcc71",
+        "type": "csv",
+        "z": "6b58cd62db06b1f7",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": false,
+        "include_empty_strings": false,
+        "include_null_values": false,
+        "x": 370,
+        "y": 240,
+        "wires": [
+            [
+                "9aace6e7.adc538"
+            ]
+        ]
+    },
+    {
+        "id": "9aace6e7.adc538",
+        "type": "debug",
+        "z": "6b58cd62db06b1f7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2bef78fd.ae70f8",
+        "type": "template",
+        "z": "6b58cd62db06b1f7",
+        "name": "CSV data",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Name,Age,Dept\nIbtsaam,21,EE\nAbdullah,21,SE\nNazeefa,22,EE\nIman,23,MassCom\n",
+        "output": "str",
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "90ed51dc.dcc71"
+            ]
+        ]
+    }
+]
