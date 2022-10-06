@@ -1,0 +1,103 @@
+[
+    {
+        "id": "6b58cd62db06b1f7",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6946e7e36b35ce5a",
+        "type": "inject",
+        "z": "6b58cd62db06b1f7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Str1",
+        "payload": "Lets ",
+        "payloadType": "str",
+        "x": 200,
+        "y": 120,
+        "wires": [
+            [
+                "2ed3af3488e88aa4"
+            ]
+        ]
+    },
+    {
+        "id": "d89bd1a982e44d54",
+        "type": "inject",
+        "z": "6b58cd62db06b1f7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Str2",
+        "payload": "Concatenate",
+        "payloadType": "str",
+        "x": 220,
+        "y": 200,
+        "wires": [
+            [
+                "2ed3af3488e88aa4"
+            ]
+        ]
+    },
+    {
+        "id": "2ed3af3488e88aa4",
+        "type": "function",
+        "z": "6b58cd62db06b1f7",
+        "name": "function 6",
+        "func": "var a ='Lets '\nif (msg.payload=='Concatenate'){\n    var b = msg.payload;\n    msg.payload = a + b;\n} else {\n    msg.payload= 'Single String'\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "997772cb8e62c997"
+            ]
+        ]
+    },
+    {
+        "id": "997772cb8e62c997",
+        "type": "debug",
+        "z": "6b58cd62db06b1f7",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 160,
+        "wires": []
+    }
+]
