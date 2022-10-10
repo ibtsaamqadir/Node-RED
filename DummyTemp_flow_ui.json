@@ -1,0 +1,170 @@
+[
+    {
+        "id": "a2406b2bf4689bc4",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "32f6419ea34a6212",
+        "type": "comment",
+        "z": "a2406b2bf4689bc4",
+        "name": "",
+        "info": "a sample data for 2 of the water quality parameters.\n2 parameters are pH and Temperature\n",
+        "x": 540,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ead1b0736ef75042",
+        "type": "ui_gauge",
+        "z": "a2406b2bf4689bc4",
+        "name": "",
+        "group": "a1d21dc2ee09413a",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "C",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "16",
+        "seg2": "32",
+        "className": "",
+        "x": 730,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d8e3ea3ac89bee8f",
+        "type": "ui_chart",
+        "z": "a2406b2bf4689bc4",
+        "name": "",
+        "group": "f6266a867d1ddcda",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "50",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 530,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3eda77bfcee1e884",
+        "type": "function",
+        "z": "a2406b2bf4689bc4",
+        "name": "function 1",
+        "func": "msg.payload =  Math.round(Math.random()*50)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 220,
+        "wires": [
+            [
+                "ead1b0736ef75042",
+                "d8e3ea3ac89bee8f"
+            ]
+        ]
+    },
+    {
+        "id": "e4731427a3bd11ee",
+        "type": "inject",
+        "z": "a2406b2bf4689bc4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "3eda77bfcee1e884"
+            ]
+        ]
+    },
+    {
+        "id": "a1d21dc2ee09413a",
+        "type": "ui_group",
+        "name": "Guage",
+        "tab": "01f9c6c97c778f0c",
+        "order": 2,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f6266a867d1ddcda",
+        "type": "ui_group",
+        "name": "Charts",
+        "tab": "01f9c6c97c778f0c",
+        "order": 1,
+        "disp": false,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "01f9c6c97c778f0c",
+        "type": "ui_tab",
+        "name": "Water Quality Monitoring System",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
